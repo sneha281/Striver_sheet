@@ -12,6 +12,28 @@ int main() {
     int n;
     cin>>n;
     name(n);
+       
+}
+
+//by using striver method
+
+#include<iostream>
+using namespace std;
+void name(int i,int n){
+    
+   if(i>=n) return ;
+   
+   cout<<i<<"sneha"<<endl;
+   name(i+1,n);
+   
+    
+}
+int main() {
+    int n;
+    int i =0;
+    cin>>n;
+  
+    name(i,n);
     
     
     
