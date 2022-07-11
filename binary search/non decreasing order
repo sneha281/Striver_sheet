@@ -1,0 +1,29 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+    int a[] = {7,6,5,4};
+    cout<<"Find element in decreasing array"<<endl;
+    int low = 0;
+    int target = 6;
+    int high = 4;
+    while(low<=high){
+        int mid  = (low+high)/2;
+      if(a[mid]==target){ 
+      cout<<mid<<endl;
+      break;
+      }
+            else if(target<a[mid]){
+                low = mid+1;
+                
+            }
+            else{
+            high = mid-1;
+            }
+        
+    }
+
+}
