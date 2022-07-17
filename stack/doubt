@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    
+    stack<pair<int,int>>s;
+    vector<int>v;
+    cout<<"next greater to right  index"<<endl;
+    int n;
+    cout<<"enter size of an array"<<endl;
+    cin>>n;
+    int a[n];
+    for(int i =0;i<n;i++){
+        cin>>a[i];
+    }
+    for(int i = 0;i<n;i++){
+        while(!s.empty() && s.top().first<=a[i]){
+            s.pop();
+        }
+        if(s.empty()){
+            v.push_back(i+1);
+        }
+        else v.push_back(s.top().second);
+        s.push({a[i],i});
+        
+    }
+ 
+    for(int i =0 ; i<v.size();i++){
+        cout<<v[i]<<" ";
+    }
+    
+    
+    
+}
