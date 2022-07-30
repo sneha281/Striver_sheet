@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+class BST{
+    public:
+    int data;
+    BST* left;
+    BST* right;
+    
+    BST(int d){
+        this->data = d;
+        this->left = NULL;
+        this->right = NULL;
+    }
+    
+};
+void levelOrderTraversal(BST* root){
+    queue<BST*> q;
+    q.push(root);
+    q.push(NULL);
+    while(!q.empty()){
+        BST* temp = q.front();
+        
+        
+        q.pop();
+        if(temp==NULL){
+            //PURANA LEVEL COMPLETE TRAVERSE
+            cout<<endl;
+            if(!q.empty()){
+                q.push(NULL);
+            }
+        }
+        //agr root m value h to else m junge
+            else{
+                cout<<temp->data<<" ";
+                if(temp->left){
+            q.push(temp->left);
+        }
+        if(temp->right){
+            q.push(temp->right);
+        }
+            }
+        }
+        
+        
+    }
+BST* insertBST(BST* root , int d){
+    if(root==NULL){
+        root = new BST(d);
+        return root;
+    }
+    if(d>root->data){
+        root->right  = insertBST(root->right , d);
+        
+    }
+    else root->left = insertBST(root->left , d);
+    return root;
+}
+void takeInput(BST* &root){
+    int data;
+    cin>>data;
+    while(data!=-1){
+        root = insertBST(root , data);
+        cin>>data;
+    }
+}
+
+int main(){
+    BST* root = NULL;
+    cout<<"Enter data"<<endl;
+    takeInput(root);
+    cout<<"priting"<<endl;
+    levelOrderTraversal(root);
+}
+
+
