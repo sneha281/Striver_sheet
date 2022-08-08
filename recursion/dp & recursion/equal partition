@@ -28,7 +28,7 @@ int main()
     }  
     
     if(sum%2==0){
-       if( solve(v , sum , n) ==true){
+       if( solve(v , sum/2 , n) ==true){
        cout<<"han hai present"<<endl;
    }
     }
