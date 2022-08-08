@@ -1,0 +1,29 @@
+
+#include <bits/stdc++.h>
+
+using namespace std;
+bool solve(vector<int>&v , int sum ,int n ){
+    
+    if(sum==0) return true;
+    if(n<=0)  return false;
+    
+    //pick 
+    if(sum>=v[n-1]){
+        return solve(v , sum - v[n-1],n-1) || solve(v,sum , n-1);
+    }
+    else return solve(v,sum , n-1);
+    
+    
+}
+int main()
+{
+    cout<<"subset sum problem return true if subset sum is present totherwise return false"<<endl;
+    cout<<endl;
+    vector<int>v = {3, 34, 4, 12, 5, 2};
+    int sum = 30;
+    int n = v.size();
+   if( solve(v , sum , n) ==true){
+       cout<<"han hai present"<<endl;
+   }
+   else cout<<"nahi hai yaar"<<endl;
+}
