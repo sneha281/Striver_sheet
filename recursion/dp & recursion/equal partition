@@ -1,0 +1,37 @@
+
+#include <bits/stdc++.h>
+
+using namespace std;
+bool solve(vector<int>&v , int sum ,int n ){
+    
+    if(sum==0) return true;
+    if(n<=0)  return false;
+    
+    //pick 
+    if(sum>=v[n-1]){
+        return solve(v , sum - v[n-1],n-1) || solve(v,sum , n-1);
+    }
+    else return solve(v,sum , n-1);
+    
+    
+}
+int main()
+{
+    cout<<"Equal sum partition"<<endl;
+    cout<<endl;
+    vector<int>v = {1,5,11,5};
+    int sum = 0;
+    int n = v.size();
+        
+    for(int i =0 ; i<v.size();i++){
+        sum = sum+v[i];
+    }  
+    
+    if(sum%2==0){
+       if( solve(v , sum , n) ==true){
+       cout<<"han hai present"<<endl;
+   }
+    }
+   else cout<<"nahi hai yaar"<<endl;
+   
+}
